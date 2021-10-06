@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="playAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App.GUI.PlayController">
+   <children>
+      <Button fx:id="fightButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#fightPressed" prefHeight="45.0" prefWidth="100.0" text="Fight" />
+      <Button layoutX="14.0" layoutY="65.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Forage" />
+      <Button layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Mine" />
+      <Button fx:id="playBackButton" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#playBackPressed" prefHeight="45.0" prefWidth="100.0" text="Back" />
+   </children>
+</AnchorPane>
