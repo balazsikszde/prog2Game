@@ -4,6 +4,10 @@ public class Player extends Entity {
     int currentXP;
     int levelupXP;
 
+    public Player() {
+        super("Player", 1, 100, 100, 1, 1);
+    }
+
     public int getCurrentXP() {
         return currentXP;
     }
@@ -13,10 +17,16 @@ public class Player extends Entity {
     }
 
     public void xpGain(int xpGot){
-        while(xpGot>getRemainingXP()){
-            currentXP=xpGot-getRemainingXP();
+        currentXP+=xpGot;
+        levelUP();
+    }
+    public void levelUP(){
+        while(0>getRemainingXP()) {
+            currentXP-=levelupXP;
             level++;
-            levelupXP=(level^2)+level;
+            levelupXP = (level ^ 2) + level;
+            baseAttack++;
+            baseDefense++;
         }
     }
 }

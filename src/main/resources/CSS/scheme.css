@@ -4,10 +4,10 @@
     -fx-font-size:14px;
     -fx-font-family:"Courier New";
     fx-pref-height:720px;
-    fx-pref-widht:580px;
+    fx-pref-width:580px;
 }
 
-Button{
+.button{
     -fx-background-color:#dcd8d0;
     -fx-background-radius:3;
     -fx-border-color:black;
@@ -17,15 +17,19 @@ Button{
     -fx-font-size:18px;
 }
 
-Button > playButton{
+.button > playButton{
     -fx-font-size:18px;
 }
 
-Button:hover{
+.button:hover{
     -fx-background-color: #968d81;
 }
 
- MenuItem{
+.button:pressed{
+    -fx-background-color: #6c665e;
+}
+
+ .menuItem{
     -fx-font-size:18px;
     -fx-font-color:brown;
  }

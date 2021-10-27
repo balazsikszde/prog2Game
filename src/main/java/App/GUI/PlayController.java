@@ -15,7 +15,10 @@ public class PlayController {
     @FXML Button fightButton;
     @FXML Button playBackButton;
 
-    public void fightPressed(ActionEvent actionEvent) {
+    public void fightPressed(ActionEvent actionEvent) throws IOException {
+        Parent switcher = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/fight.fxml"));
+        Stage playStage = (Stage) playBackButton.getScene().getWindow();
+        playStage.getScene().setRoot(switcher);
     }
 
     public void playBackPressed(ActionEvent actionEvent) throws IOException {
