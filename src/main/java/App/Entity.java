@@ -1,6 +1,7 @@
 package App;
 
 public class Entity {
+
     String name;
     int level;
     int maxHealth;
@@ -20,19 +21,25 @@ public class Entity {
         return baseDefense;
     }
 
-    public Entity(String name, int level, int maxHealth, int currentHealth, int baseAttack, int baseDefense) {
+    public Entity(String name, int level, int maxHealth, int baseAttack, int baseDefense) {
         this.name = name;
         this.level = level;
         this.maxHealth = maxHealth;
-        this.currentHealth = currentHealth;
+        this.currentHealth = maxHealth;
         this.baseAttack = baseAttack;
         this.baseDefense = baseDefense;
     }
-    public void takeDMG(int DMG){
+    public int takeDMG(int DMG){
         currentHealth-=DMG;
+        return DMG;
     }
+
     public boolean die(){
         return 0 >= currentHealth;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getMaxHealth() {

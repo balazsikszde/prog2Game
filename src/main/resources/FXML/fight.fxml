@@ -3,11 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0"
-            prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="App.GUI.FightController">
-   <TextArea fx:id="fightTextArea" depthTest="DISABLE" editable="false" layoutX="110.0" layoutY="382.0"
-             prefHeight="75.0" prefWidth="500.0" wrapText="true"/>
-   <Button fx:id="fightButton" layoutX="334.0" layoutY="139.0" mnemonicParsing="false" onAction="#fightButtonPressed"
-           text="Fight"/>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App.GUI.FightController">
+   <TextArea fx:id="fightTextArea" depthTest="DISABLE" editable="false" layoutX="110.0" layoutY="357.0" prefHeight="100.0" prefWidth="500.0" wrapText="true" />
+   <Button fx:id="fightButton" disable="true" layoutX="339.0" layoutY="286.0" mnemonicParsing="false" onAction="#fightButtonPressed" text="Fight" visible="false" />
+   <Label fx:id="playerHealthLabel" layoutX="110.0" layoutY="311.0" text="Your HP:" />
+   <Label fx:id="enemyHealthLabel" layoutX="523.0" layoutY="311.0" text="Enemy HP:" />
+   <Button fx:id="fightBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#fightBackPressed" text="Back" />
+   <Button fx:id="nextFightButton" layoutX="325.0" layoutY="168.0" mnemonicParsing="false" onAction="#nextFightPressed" text="Next Fight" />
 </AnchorPane>
