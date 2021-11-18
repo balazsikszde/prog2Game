@@ -5,9 +5,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App.GUI.FightController">
    <TextArea fx:id="fightTextArea" depthTest="DISABLE" editable="false" layoutX="110.0" layoutY="357.0" prefHeight="100.0" prefWidth="500.0" wrapText="true" />
-   <Button fx:id="fightButton" disable="true" layoutX="339.0" layoutY="286.0" mnemonicParsing="false" onAction="#fightButtonPressed" text="Fight" visible="false" />
-   <Label fx:id="playerHealthLabel" layoutX="110.0" layoutY="311.0" text="Your HP:" />
-   <Label fx:id="enemyHealthLabel" layoutX="523.0" layoutY="311.0" text="Enemy HP:" />
+   <Button fx:id="fightButton" disable="true" layoutX="339.0" layoutY="307.0" mnemonicParsing="false" onAction="#fightButtonPressed" text="Fight" visible="false" />
+   <Label fx:id="playerHealthLabel" layoutX="119.0" layoutY="311.0" text="Your HP:" />
+   <Label fx:id="enemyHealthLabel" layoutX="535.0" layoutY="311.0" text="Enemy HP:" />
    <Button fx:id="fightBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#fightBackPressed" text="Back" />
-   <Button fx:id="nextFightButton" layoutX="325.0" layoutY="168.0" mnemonicParsing="false" onAction="#nextFightPressed" text="Next Fight" />
+   <Button fx:id="nextFightButton" layoutX="325.0" layoutY="307.0" mnemonicParsing="false" onAction="#nextFightPressed" text="Next Fight" />
+   <Label fx:id="killsToAdvanceLabel" layoutX="484.0" layoutY="18.0" text="Kills To Advance:" wrapText="true" />
+   <ProgressBar layoutX="34.0" layoutY="213.0" prefWidth="200.0" progress="0.0" fx:id="xpBar" />
+   <Label layoutX="125.0" layoutY="240.0" text="XP:" fx:id="xpLabel" />
+   <Label fx:id="playerLevelLabel" layoutX="119.0" layoutY="173.0" text="Your lvl" />
+   <Label fx:id="enemyLevelLabel" layoutX="538.0" layoutY="173.0" text="EnemyLvl" />
 </AnchorPane>

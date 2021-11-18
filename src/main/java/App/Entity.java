@@ -3,6 +3,7 @@ package App;
 public class Entity {
 
     String name;
+
     int level;
     int maxHealth;
     int currentHealth;
@@ -19,6 +20,10 @@ public class Entity {
 
     public int getBaseDefense() {
         return baseDefense;
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public Entity(String name, int level, int maxHealth, int baseAttack, int baseDefense) {

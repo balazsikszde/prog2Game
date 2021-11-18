@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gamestate>
+        
+    <level>1</level>
+        
+    <currentKills>4</currentKills>
+        
+    <currentEnemy>App.Entity@6f3704b4</currentEnemy>
+    
+</gamestate>

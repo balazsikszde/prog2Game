@@ -9,5 +9,6 @@
       <Button layoutX="14.0" layoutY="65.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Forage" />
       <Button layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" text="Mine" />
       <Button fx:id="playBackButton" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#playBackPressed" prefHeight="45.0" prefWidth="100.0" text="Back" />
+      <Label fx:id="goldLabel" layoutX="232.0" layoutY="28.0" text="Gold Pouch:" />
    </children>
 </AnchorPane>

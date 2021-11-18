@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<chestplates>
+    <chestplate>
+        <name>First</name>
+        <level>1</level>
+        <attack>1</attack>
+        <defense>1</defense>
+        <health>1</health>
+    <chestplate>
+        <name>Second</name>
+        <level>2</level>
+        <attack>2</attack>
+        <defense>2</defense>
+        <health>2</health>
+    </chestplate>
+    <chestplate>
+        <name>Third</name>
+        <level>3</level>
+        <attack>3</attack>  
+        <defense>3</defense>
+        <health>3</health>
+    </chestplate> 
+</chestplates>
