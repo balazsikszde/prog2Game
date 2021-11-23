@@ -156,7 +156,7 @@ public class FightController implements Initializable {
         if(currentFightState.getPlayer().die()){
             fightOver();
             fightTextArea.appendText("End of round "+ currentFightState.getRoundNumber() + ".\n");
-            fightTextArea.appendText("You have died.\n");
+            fightTextArea.appendText("You have died and lost half your gold.\n");
             currentFightState.roundOver();
             return;
         }

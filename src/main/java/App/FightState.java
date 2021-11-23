@@ -177,6 +177,7 @@ public class FightState {
         if(currentEnemy.die()){
             roundNumber++;
             currentKills++;
+            player.goldGain(currentEnemy.level);
             player.xpGain(currentEnemy.level);
             if(currentKills==getKillsToAdvance()){
                 level++;
@@ -194,6 +195,7 @@ public class FightState {
         }
         if(player.die()){
             roundNumber++;
+            player.goldGain(-1*(player.getGold()/2));
             return;
         }
         roundNumber++;

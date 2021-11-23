@@ -2,7 +2,6 @@ package App;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,7 +16,6 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Player extends Entity {
 
@@ -25,17 +23,15 @@ public class Player extends Entity {
     int currentXP;
     int levelupXP;
 
-    int gold;
+    private int gold;
 
     int maxStamina=100;
     int currentStamina=100;
 
-    ArrayList<Item> inventory = new ArrayList<>();
-
-    Helmet currentHelmet;
-    Chestplate currentChestplate;
-    Leggings currentLeggings;
-    Boots currentBoots;
+    int helmetLevel;
+    int chestplateLevel;
+    int leggingsLevel;
+    int bootsLevel;
 
     public Player() throws ParserConfigurationException, IOException, SAXException {
         super("Player", 1, 100, 2, 0);
@@ -50,6 +46,17 @@ public class Player extends Entity {
         this.currentHealth= Integer.parseInt(CurrentHealth);
         String CurrentXP = document.getElementsByTagName("currentXP").item(0).getTextContent();
         this.currentXP= Integer.parseInt(CurrentXP);
+        String gold = document.getElementsByTagName("gold").item(0).getTextContent();
+        this.gold= Integer.parseInt(gold);
+
+        String helmetLevel = document.getElementsByTagName("helmetLevel").item(0).getTextContent();
+        this.helmetLevel= Integer.parseInt(helmetLevel);
+        String chestplateLevel = document.getElementsByTagName("chestplateLevel").item(0).getTextContent();
+        this.chestplateLevel= Integer.parseInt(chestplateLevel);
+        String leggingsLevel = document.getElementsByTagName("leggingsLevel").item(0).getTextContent();
+        this.leggingsLevel= Integer.parseInt(leggingsLevel);
+        String bootsLevel = document.getElementsByTagName("bootsLevel").item(0).getTextContent();
+        this.bootsLevel= Integer.parseInt(bootsLevel);
 
     }
 
@@ -72,6 +79,10 @@ public class Player extends Entity {
 
     public int getGold() {
         return gold;
+    }
+
+    public void goldGain(int g) {
+        gold+=g;
     }
 
     public void xpGain(int xpGot){
@@ -97,6 +108,26 @@ public class Player extends Entity {
         Node currentXPNode = (Node) xPath.compile("/playerstate/currentXP").evaluate(doc, XPathConstants.NODE);
         currentXPNode.setTextContent(String.valueOf(currentXP));
 
+        xPath = XPathFactory.newInstance().newXPath();
+        Node goldNode = (Node) xPath.compile("/playerstate/gold").evaluate(doc, XPathConstants.NODE);
+        goldNode.setTextContent(String.valueOf(gold));
+
+        xPath = XPathFactory.newInstance().newXPath();
+        Node helmetLevelNode = (Node) xPath.compile("/playerstate/helmetLevel").evaluate(doc, XPathConstants.NODE);
+        helmetLevelNode.setTextContent(String.valueOf(helmetLevel));
+
+        xPath = XPathFactory.newInstance().newXPath();
+        Node chestplateLevelNode = (Node) xPath.compile("/playerstate/chestplateLevel").evaluate(doc, XPathConstants.NODE);
+        chestplateLevelNode.setTextContent(String.valueOf(chestplateLevel));
+
+        xPath = XPathFactory.newInstance().newXPath();
+        Node leggingsLevelNode = (Node) xPath.compile("/playerstate/leggingsLevel").evaluate(doc, XPathConstants.NODE);
+        leggingsLevelNode.setTextContent(String.valueOf(leggingsLevel));
+
+        xPath = XPathFactory.newInstance().newXPath();
+        Node bootsLevelNode = (Node) xPath.compile("/playerstate/bootsLevel").evaluate(doc, XPathConstants.NODE);
+        bootsLevelNode.setTextContent(String.valueOf(bootsLevel));
+
         Transformer tf = TransformerFactory.newInstance().newTransformer();
         tf.setOutputProperty(OutputKeys.INDENT, "no");
         tf.setOutputProperty(OutputKeys.METHOD, "xml");
@@ -107,8 +138,8 @@ public class Player extends Entity {
     }
 
     public void initAttributes() {
-        baseAttack+=level;
-        baseDefense+=level;
+        baseAttack+=level+bootsLevel;
+        baseDefense+=level+helmetLevel+chestplateLevel+leggingsLevel;
         levelupXP=5*level;
     }
 
@@ -122,11 +153,57 @@ public class Player extends Entity {
         }
     }
 
-    public void getItem(Item item){
-        inventory.add(item);
+    public int getHelmetLevel() {
+        return helmetLevel;
     }
 
-    public void removeItem(Item item){
-        inventory.remove(item);
+    public int getChestplateLevel() {
+        return chestplateLevel;
     }
+
+    public int getLeggingsLevel() {
+        return leggingsLevel;
+    }
+
+    public int getBootsLevel() {
+        return bootsLevel;
+    }
+
+    public boolean upgrade(int n){
+        if(gold>=upgradeCost(n)){
+            gold-=upgradeCost(n);
+            switch (n) {
+                case 0:
+                        return true;
+                case 1:
+                    helmetLevel++;
+                    return true;
+                case 2:
+                    chestplateLevel++;
+                    return true;
+                case 3:
+                    leggingsLevel++;
+                    return true;
+                case 4:
+                    bootsLevel++;
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public int upgradeCost(int n){
+        switch (n){
+            case 1:
+                return helmetLevel+1;
+            case 2:
+                return chestplateLevel+1;
+            case 3:
+                return leggingsLevel+1;
+            case 4:
+                return bootsLevel+1;
+        }
+        return n;
+    }
+
 }

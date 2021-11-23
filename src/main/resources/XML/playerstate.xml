@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><playerstate>
-    <level>7</level>
-    <currentHealth>50</currentHealth>
+    <level>1</level>
+    <currentHealth>100</currentHealth>
     <currentXP>0</currentXP>
+    <gold>0</gold>
+    <helmetLevel>0</helmetLevel>
+    <chestplateLevel>0</chestplateLevel>
+    <leggingsLevel>0</leggingsLevel>
+    <bootsLevel>0</bootsLevel>
 </playerstate>
